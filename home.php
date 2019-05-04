@@ -52,7 +52,7 @@
     <div id="pesquisa">
       <input  class="form-control" type="text" placeholder="Search" aria-label="Search">
     </div>
-      <div class="card-group">
+      <div class="card-columns" style="width=50%">
         <div class="card">
             <img src="https://images-submarino.b2w.io/produtos/01/00/item/115042/6/115042690_1GG.jpg" alt="box harry potter">
             <div class="card-body">
@@ -77,8 +77,31 @@
               <strong><p class="card-text">R$ 149,99</p></strong>
             </div>
           </div>
-      </div>
-      <div class="card-group">
+          <div class="card">
+            <img src="https://images-submarino.b2w.io/produtos/01/00/item/129536/2/129536201_3SZ.jpg" alt="box os instrumentos mortais">
+            <div class="card-body">
+              <h5 class="card-title">Box Os Instrumentos Mortais</h5>
+              <p class="card-text">Box com 6 livros da saga Os Instrumentos Mortais.</p>
+              <strong><p class="card-text">R$ 149,99</p></strong>
+            </div>
+          </div>
+          <div class="card">
+            <img src="https://images-submarino.b2w.io/produtos/01/00/item/129536/2/129536201_3SZ.jpg" alt="box os instrumentos mortais">
+            <div class="card-body">
+              <h5 class="card-title">Box Os Instrumentos Mortais</h5>
+              <p class="card-text">Box com 6 livros da saga Os Instrumentos Mortais.</p>
+              <strong><p class="card-text">R$ 149,99</p></strong>
+            </div>
+          </div>
+          <div class="card">
+            <img src="https://images-submarino.b2w.io/produtos/01/00/item/129536/2/129536201_3SZ.jpg" alt="box os instrumentos mortais">
+            <div class="card-body">
+              <h5 class="card-title">Box Os Instrumentos Mortais</h5>
+              <p class="card-text">Box com 6 livros da saga Os Instrumentos Mortais.</p>
+              <strong><p class="card-text">R$ 149,99</p></strong>
+            </div>
+          </div>
+
         <div class="card">
             <img src="https://78.media.tumblr.com/65dbf48ee2eb5f28248e9b0b60dc8733/tumblr_nbeh5rooez1rfx93bo1_500.jpg" alt="box herois do olimpo">
             <div class="card-body">
@@ -106,10 +129,8 @@
       </div>
     </main>
 
-  <footer>
-    <div id="copyright">
+  <footer id="copyright">
           Copyright &copy;2019 by Lara e Thiago
-    </div>
 </footer>
   <script src="libs/jquery.js"></script>
 	<script src="libs/popper.js"></script>

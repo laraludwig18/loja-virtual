@@ -4,7 +4,9 @@
 	font-size:18px;
 	background-color: #F0F0F0;
 }
-body{
+
+body, html{
+	height: 100%;
 	min-height: 100%;
 	overflow-x: hidden;
 }
@@ -20,6 +22,8 @@ body{
 	display:flex;
 }
 #copyright{
+	position:absolute;
+    bottom:0;
 	border: 1px solid;
 	border-color: rgba(0,0,0,0.0);
 	width: 100%;
@@ -37,12 +41,11 @@ body{
 }
 
 .card{
-	/* width: 20% !important;
-	height: 1% !important; */
-	margin: 20px !important;
+	 width: 49.5% !important;
 }
-.card-group{
-	margin: 50px;
+.card-columns{
+	display: inline-block !important;
+	column-break-inside: avoid !important;
 }
 img{
 	margin: auto;
