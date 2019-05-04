@@ -11,14 +11,11 @@
 	<header id="cabecalho">
       
 <!--Navbar-->
-<nav class="navbar navbar-light light-blue lighten-4">
-
-  <!-- Navbar brand -->
-  <a class="navbar-brand" href="#">Navbar</a>
+<nav class="navbar navbar-light">
 
   <!-- Collapse button -->
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1"
-    aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1"
+    aria-controls="navbarSupportedContent1" aria-expanded="false"   >
     <span class="navbar-toggler-icon"></span></button>
 
   <!-- Collapsible content -->
@@ -43,6 +40,8 @@
 
 </nav>
 <!--/.Navbar-->
+
+  <h1 id="titulo">BookStore</h1>
   <img id="carrinho" src="https://cdn.icon-icons.com/icons2/494/PNG/512/cart_icon-icons.com_48341.png" alt="carrinho">
 </nav>
 
