@@ -2,13 +2,13 @@
 	margin:  0; 
 	padding: 0;
 	font-size:18px;
-	background-color: #F0F0F0;
 }
 
 body, html{
 	height: 100%;
 	min-height: 100%;
 	overflow-x: hidden;
+	background-color: #F0F0F0 !important;
 }
 
 #carrinho{
@@ -67,3 +67,24 @@ h5,p{
 	border-color: rgba(0,0,0,0.0);
 	background-image: linear-gradient(to right, lightgrey , grey, lightgrey) !important;
 }
+
+#login{
+	text-align: center;
+	margin: 0;
+}
+
+.form-group{
+	margin-left: 4.5%;
+	width: 90% !important;
+	clear: both;
+}
+
+#logar{
+	position: relative;
+	left: 90%;
+}
+
+a{
+	color: #080808 !important;
+}
+
