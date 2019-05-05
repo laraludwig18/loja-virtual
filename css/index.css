@@ -16,19 +16,15 @@ body, html{
 	height: 50px;
 	position: absolute;
 	left: 93%;
+	top:5px;
 	background-color:rgba(0,0,0,0.0);
 }
 #pesquisa{
 	display:flex;
+	margin-bottom: 1px;
 }
 #copyright{
-	position:absolute;
-    bottom:0;
-	border: 1px solid;
-	border-color: rgba(0,0,0,0.0);
-	width: 100%;
-	text-align: center;
-	background-image: linear-gradient(to right, lightgrey , grey, lightgrey) !important;
+background-image: linear-gradient(to right, CornflowerBlue, CornflowerBlue ) !important;
 }
 
 .navbar{
@@ -36,7 +32,6 @@ body, html{
 }
 
 #main{
-	/* position:relative; */
 	padding:20px;
 }
 
@@ -45,10 +40,8 @@ body, html{
 }
 .card-columns{
 	display: inline-block !important;
-	column-break-inside: avoid !important;
 }
 img{
-	margin: auto;
 	width: 240px;
 	height: 250px;
 }
@@ -57,15 +50,16 @@ h5,p{
 }
 
 #titulo {
+	position: relative;
+	top: 5px;
 	background-color:rgba(0,0,0,0.0);
 	display: inline-flex;
+	text-align: center !important;
 }
 #cabecalho{
-	width: 100%;
 	display: flex;
-	border: 1px solid;
-	border-color: rgba(0,0,0,0.0);
-	background-image: linear-gradient(to right, lightgrey , grey, lightgrey) !important;
+	background-image: linear-gradient(to right, CornflowerBlue  , CornflowerBlue ) !important;
+
 }
 
 #login{

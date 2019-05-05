@@ -11,7 +11,7 @@
 	<header id="cabecalho">
       
 <!--Navbar-->
-<nav class="navbar navbar-light">
+<nav class="navbar navbar-dark py-3">
 
   <!-- Collapse button -->
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1"
@@ -129,9 +129,16 @@
       </div>
     </main>
 
-  <footer id="copyright">
-          Copyright &copy;2019 by Lara e Thiago
-</footer>
+
+    <footer class="py-3 navbar-dark" id="copyright">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; 2019 - by Lara e Thiago</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+  <!-- <footer id="copyright">
+          Copyright &copy; 2019 - by Lara e Thiago
+</footer> -->
   <script src="libs/jquery.js"></script>
 	<script src="libs/popper.js"></script>
 	<script src="libs/bootstrap/js/bootstrap.min.js"></script>
