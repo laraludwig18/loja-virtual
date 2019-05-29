@@ -1,0 +1,50 @@
+/*!
+ * Start Bootstrap - Shop Homepage (https://startbootstrap.com/template-overviews/shop-homepage)
+ * Copyright 2013-2019 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-shop-homepage/blob/master/LICENSE)
+ */
+a{
+    text-decoration: none;
+    background-color: transparent;
+}
+*{
+	margin:  0; 
+	padding: 0;
+	font-size:18px;
+}
+
+body, html{
+	height: 100%;
+	min-height: 100%;
+	overflow-x: hidden;
+	background-color: #F0F0F0 !important;
+}
+
+#carrinho{
+	width: 50px;
+	height: 50px;
+	background-color:rgba(0,0,0,0.0);
+}
+#pesquisa{
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+#titulo{
+    color: #eaeaeb;
+	background-color:rgba(0,0,0,0.0);
+	display: inline-flex;
+}
+#cabecalho{
+    background-color: #4a5056 ;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.main{
+	display: flex;
+	flex:1;
+	flex-direction: column;
+	justify-content: space-between;
+}
