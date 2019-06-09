@@ -8,7 +8,11 @@
 </head>
 
 <body>
-    <?php include "navbar.php"; ?>
+    <?php 
+        session_start();
+        if(!$_SESSION["client"]) return header("Location: login.php");
+        include "navbar.php"; 
+    ?>
     <div class="container">
         <div class="row">
             <div class="col-lg-9">

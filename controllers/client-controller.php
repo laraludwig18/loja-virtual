@@ -1,16 +1,26 @@
 <?php
     include '../model/client.class.php';
     include '../dao/clientdao.class.php';
+    $content = trim(file_get_contents("php://input"));
+    $client = json_decode($content, true);
 
     $c = new Client();
-    $c->name = $_POST['name'];
-    $c->email = $_POST['email'];
-    $c->phoneNumber = $_POST['phoneNumber'];
-    $c->birthDate = $_POST['birthDate'];
-    $c->cpf = $_POST['cpf'];    
-    $c->address = $_POST['address']; 
-    $c->password = $_POST['password'];         
+    $c->name = $client['name'];
+    $c->email = $client['email'];
+    $c->phoneNumber = $client['phoneNumber'];
+    $c->birthDate = $client['birthDate'];
+    $c->cpf = $client['cpf'];    
+    $c->address = $client['address']; 
+    $c->password = password_hash($client['password'], PASSWORD_DEFAULT);       
                     
     $cDAO = new ClientDAO();
+    $result = $cDAO->getUser($c->email);
+
+    if(!empty($result)) {
+        echo json_encode(array('code' => 400, 'errorMessage' => "Email já cadastrado em outra conta"));    
+        exit();
+    }
+
     $cDAO->createClient($c);
-    header("location:../login.php");        
+    
+    echo json_encode(array('code' => 200));    

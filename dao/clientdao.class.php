@@ -11,7 +11,7 @@ class ClientDAO {
     public function createClient($c){
         try {
             $stat = $this->connection->prepare(
-                "insert into client(clientId, name, email, phoneNumber, birthDate, cpf, address, password) values(null,?,?,?,?,?,?,?);");
+                "insert into client(clientId, name, email, phoneNumber, birthDate, cpf, address, password, type) values(null,?,?,?,?,?,?,?,?);");
                 
             $stat->bindValue(1,$c->name);
             $stat->bindValue(2,$c->email);
@@ -20,10 +20,21 @@ class ClientDAO {
             $stat->bindValue(5,$c->cpf);
             $stat->bindValue(6,$c->address);
             $stat->bindValue(7,$c->password);
+            $stat->bindValue(8,"normal");
             $stat->execute();
             $this->connection = null;
         } catch (PDOException $exc) {
             echo "Erro ao cadastrar!".$exc;
+        }
+    }
+
+    public function getUser($email){
+        try{
+            $stat = $this->connection->query("select * from client where email = '{$email}'");
+            $array = $stat->fetchAll(PDO::FETCH_ASSOC);
+            return $array;
+        }catch (Exception $exc){
+            echo "Erro ao filtrar cliente".$exc;
         }
     }
 }

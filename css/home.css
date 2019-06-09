@@ -26,9 +26,13 @@ html {
   margin-bottom: 5px;
 }
 
-.main {
+.container {
   display: flex;
   flex: 1;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.midle {
+  justify-content: center;
 }
