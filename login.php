@@ -10,7 +10,7 @@
     <?php
         $error = "";
         if(isset($_GET['error'])){
-            $error =  '<div id="alert" class="alert alert-danger fade show" role="alert">Usuário ou senha inválidos.</div>';
+            $error = '<div id="alert" class="alert alert-danger fade show" role="alert">Usuário ou senha inválidos.</div>';
         }
         echo $error;
     ?>

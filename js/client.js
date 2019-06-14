@@ -1,7 +1,7 @@
 $("#form-client").submit(async e => {
   e.preventDefault();
 
-  const client = buildClient();
+  const client = this.buildClient();
 
   if (!isValid(client)) return;
 

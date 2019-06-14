@@ -32,14 +32,14 @@
                                 </div>
                             </div>
                             <div class="form-label-group">
-                                <input type="number" id="phoneNumber" class="form-control">
+                                <input type="text" data-mask="(00) 00000-0000" id="phoneNumber" class="form-control">
                                 <label for="phoneNumber">Telefone</label>
                                 <div class="invalid-feedback">
                                     Por favor, informe um telefone válido.
                                 </div>
                             </div>
                             <div class="form-label-group">
-                                <input type="number" id="cpf" class="form-control">
+                                <input type="text" id="cpf" data-mask="000.000.000-00" class="form-control">
                                 <label for="cpf">CPF</label>
                                 <div class="invalid-feedback">
                                     Por favor, informe um cpf válido.
@@ -91,6 +91,7 @@
     </div>
 </body>
 <?php include "scripts.php"; ?>
-<script type="text/javascript" src="js/registerClient.js"></script>
+<script type="text/javascript" src="node_modules/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
+<script type="text/javascript" src="js/client.js"></script>
 
 </html>
