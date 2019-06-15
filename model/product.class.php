@@ -2,6 +2,7 @@
 class Product {
     private $productId;
     private $name;
+    private $author;
     private $description;
     private $category;
     private $quantity;
