@@ -1,12 +1,43 @@
 $(document).ready(() => {
   $(".price").mask("#.##0,00", { reverse: true });
+  const productId = window.location.search.slice(4);
+  if (productId) {
+    this.getProduct(productId);
+  }
 });
+
+getProduct = async productId => {
+  const response = await fetch(
+    `controllers/product-controller.php?op=get&filtertype=id&filter=${productId}`
+  );
+  const { products } = await response.json();
+  this.setValues(products[0]);
+};
+
+setValues = product => {
+  const filename = this.getFilename(product.imageUrl);
+
+  $("#name").val(product.name);
+  $("#author").val(product.author);
+  $("#description").val(product.description);
+  $("#category").val(product.category);
+  $("#quantity").val(product.quantity);
+  $("#price").val(product.price);
+  $("#label-file").text(filename);
+};
+
+getFilename = fileUrl => fileUrl.split("/")[3];
 
 $("#form-product").submit(async e => {
   e.preventDefault();
   const product = this.buildProduct();
+  const productExist = !!window.location.search;
 
   const data = new FormData();
+
+  if (productExist) {
+    data.append("productId", window.location.search.slice(4));
+  }
 
   data.append("file", product.file);
   data.append("name", product.name);
@@ -20,12 +51,18 @@ $("#form-product").submit(async e => {
     method: "POST",
     body: data
   };
+
   try {
-    const response = await fetch(
-      "controllers/product-controller.php?op=post",
-      requestInfo
-    );
+    const url = productExist
+      ? "controllers/product-controller.php?op=put"
+      : "controllers/product-controller.php?op=post";
+
+    const response = await fetch(url, requestInfo);
+
     const json = await response.json();
+
+    console.log(json["code"]);
+
     if (json["code"] === 200) {
       window.location.replace("admin.php");
     }

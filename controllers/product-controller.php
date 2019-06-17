@@ -1,47 +1,72 @@
 <?php
-    include '../model/product.class.php';
-    include '../dao/productdao.class.php';
-
-    $pDAO = new ProductDAO();
+    include '../services/product-service.class.php';
+    include '../services/image-service.class.php';
+    include '../models/product.class.php';
+    
+    $productService = new ProductService();
     
     switch($_GET["op"]){
         case "get": 
-            $products = $pDAO->getProducts();
+            if(isset($_GET["filtertype"]) && isset($_GET["filter"])) {
+                $products = $productService->filter($_GET["filtertype"], $_GET["filter"]);
+            } else {
+                $products = $productService->getProducts();
+            }
             echo json_encode(array('products' => $products)); 
             break;
         case "delete": 
-            $pDAO->removeProduct($_GET["productid"]);
+            $productService->removeProduct($_GET["productid"]);
             break;
         case "post":
-            $CLIENT_ID = "9744a1494c6651d";
             $image = $_FILES["file"]["tmp_name"];
             $handle = fopen($image, "r");
             $data = fread($handle, filesize($image));
+
+            $imageService = new ImageService();
+            $result = $imageService->saveImage($data);
+
+            if(!$result->success) exit();
         
-            $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, 'https://api.imgur.com/3/image.json');
-            curl_setopt($ch, CURLOPT_POST, TRUE);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Client-ID ' . $CLIENT_ID));
-            curl_setopt($ch, CURLOPT_POSTFIELDS, array('image' => base64_encode($data)));
+            $p = new Product();
+            $p->name = $_POST['name'];
+            $p->author = $_POST['author'];
+            $p->description = $_POST['description'];
+            $p->category = $_POST['category'];
+            $p->quantity = $_POST['quantity'];
+            $p->price = $_POST['price'];
+            $p->imageUrl = $result->data->link;    
         
-            $reply = curl_exec($ch);
-            curl_close($ch);
+            $productService->createProduct($p);
+            
+            echo json_encode(array('code' => 200)); 
+            break;
+        case "put":
+            $changeFile = isset($_FILES["file"]["tmp_name"]);
+            if($changeFile){
+                $image = $_FILES["file"]["tmp_name"];
+                $handle = fopen($image, "r");
+                $data = fread($handle, filesize($image));
+
+                $imageService = new ImageService();
+                $result = $imageService->saveImage($data);
+
+                if(!$result->success) exit();
+            }   
+            
+            $p = new Product();
+            $p->productId = $_POST['productId'];
+            $p->name = $_POST['name'];
+            $p->author = $_POST['author'];
+            $p->description = $_POST['description'];
+            $p->category = $_POST['category'];
+            $p->quantity = $_POST['quantity'];
+            $p->price = $_POST['price'];
+
+            if($changeFile) {
+                $p->imageUrl = $result->data->link;    
+            }
         
-            $apiResponse = json_decode($reply);
-        
-            if(!$apiResponse->success) exit();
-        
-            $c = new Product();
-            $c->name = $_POST['name'];
-            $c->author = $_POST['author'];
-            $c->description = $_POST['description'];
-            $c->category = $_POST['category'];
-            $c->quantity = $_POST['quantity'];
-            $c->price = $_POST['price'];
-            $c->imageUrl = $apiResponse->data->link;    
-        
-            $pDAO->createProduct($c);
+            $productService->changeProduct($p, $changeFile);
             
             echo json_encode(array('code' => 200)); 
             break;

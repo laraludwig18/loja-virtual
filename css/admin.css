@@ -1,3 +1,24 @@
 body {
   background-color: #eeeeee;
 }
+
+.header-search {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 30px;
+  align-items: center;
+}
+
+.search {
+  width: 70%;
+}
+
+.main-container {
+  background-color: #fff;
+  display: flex;
+  flex: 1;
+  padding: 20px;
+  margin-top: 20px;
+}

@@ -67,13 +67,18 @@
                                 </div>
                             </div>
                             <label for="file">Foto: *</label>
-                            <div class="custom-file mb-4">
-                                <input id="file" type="file" class="custom-file-input input-file" id="file"
-                                    lang="pt-BR">
+                            <div class="custom-file mb-5">
+                                <input id="file" type="file" accept="image/png, image/jpeg, image/jpg"
+                                    class="custom-file-input input-file" id="file">
                                 <label class="custom-file-label" id="label-file" for="file">Escolher arquivo</label>
+                                <small id="passwordHelpBlock" class="form-text text-muted">
+                                    Apenas imagens no formato .JPEG, .JPG ou .PNG.
+                                </small>
                             </div>
+
                             <button class="btn btn-lg btn-primary btn-block btn-submit mb-4" type="submit">CADASTRAR
                                 PRODUTO</button>
+                            <a class="link-admin" href="admin.php">Ver produtos cadastrados</a>
                         </form>
                     </div>
                 </div>

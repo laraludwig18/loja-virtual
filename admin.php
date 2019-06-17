@@ -12,8 +12,13 @@
         if(!$_SESSION["admin"]) return header("Location: login.php");
     ?>
     <div class="container">
-        <div class="row">
-            <table id="table" class="table table-hover">
+        <div class="row main-container">
+            <div class="header-search">
+                <input class="form-control search" id="input-search" type="text" placeholder="Pesquisar por nome"
+                    aria-label="Search">
+                <button id="add-product" class="btn rounded-circle btn-primary btn-lg">+</button>
+            </div>
+            <table id="table" class="table table-hover table-responsive-sm">
                 <thead>
                     <tr>
                         <th scope="col">#</th>

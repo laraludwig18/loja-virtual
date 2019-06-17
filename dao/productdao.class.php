@@ -43,6 +43,51 @@ class ProductDAO {
             $stat->execute();
         }catch (PDOException $exc){
             echo "Erro ao excluir produto".$exc;
-        }//fecha catch
+        }
     } 
+
+    public function changeProduct($p){
+        try {
+            $stat = $this->connection->prepare(
+                    "update product
+                     set name=?, author=?, description=?, category=?, quantity=?, price=?
+                     where productId = ?");
+        
+        $stat->bindValue(1,$p->name);
+        $stat->bindValue(2,$p->author);
+        $stat->bindValue(3,$p->description);
+        $stat->bindValue(4,$p->category);
+        $stat->bindValue(5,$p->quantity);
+        $stat->bindValue(6,$p->price);
+        $stat->bindValue(7,$p->productId);
+        
+        $stat->execute();
+        } catch (PDOException $exc) {
+            echo "Erro ao alterar produto".$exc;
+        }
+    }
+
+    public function changeFile($p){
+        try {
+            $stat = $this->connection->prepare(
+                    "update product set imageUrl=? where productId = ?");
+        
+        $stat->bindValue(1,$p->imageUrl);
+        $stat->bindValue(2,$p->productId);
+        
+        $stat->execute();
+        } catch (PDOException $exc) {
+            echo "Erro ao alterar arquivo".$exc;
+        }
+    }
+
+    public function filter($query){
+        try{
+            $stat = $this->connection->query("select * from product {$query}");
+            $array = $stat->fetchAll(PDO::FETCH_ASSOC);
+            return $array;
+        }catch (Exception $exc){
+            echo "Erro ao filtrar produto".$exc;
+        }
+    }
 }

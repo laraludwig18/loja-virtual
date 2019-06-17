@@ -1,5 +1,5 @@
 <?php
-    include '../model/client.class.php';
+    include '../models/client.class.php';
     include '../dao/clientdao.class.php';
     $content = trim(file_get_contents("php://input"));
     $client = json_decode($content, true);
