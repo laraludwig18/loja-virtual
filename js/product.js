@@ -61,8 +61,6 @@ $("#form-product").submit(async e => {
 
     const json = await response.json();
 
-    console.log(json["code"]);
-
     if (json["code"] === 200) {
       window.location.replace("admin.php");
     }

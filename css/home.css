@@ -1,16 +1,17 @@
-/*!
- * Start Bootstrap - Shop Homepage (https://startbootstrap.com/template-overviews/shop-homepage)
- * Copyright 2013-2019 Start Bootstrap
- * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-shop-homepage/blob/master/LICENSE)
- */
-a {
-  text-decoration: none;
-  background-color: transparent;
-}
 * {
   margin: 0;
   padding: 0;
   font-size: 18px;
+}
+
+a {
+  color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: none;
+  text-decoration: none;
 }
 
 body,
@@ -21,14 +22,64 @@ html {
   background-color: #f0f0f0 !important;
 }
 
-#pesquisa {
-  margin-top: 5px;
-  margin-bottom: 5px;
+.search {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  align-self: center;
 }
 
-.container {
+.product-button {
+  height: 300px;
+  width: 95%;
+}
+
+.product-content {
   display: flex;
   flex: 1;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-text {
+  display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  align-items: flex-start;
+  margin-left: 20px;
+}
+
+.product-title {
+  color: #000;
+  margin-top: 15px;
+  font-size: 16px;
+  text-transform: capitalize;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.product-subtitle {
+  text-transform: capitalize;
+  font-size: 12px;
+}
+
+.product-value {
+  color: #000;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.product-img {
+  height: 150px;
+  width: 120px;
+}
+
+.inner-container {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+}
+
+.add-cart {
+  margin: 10px;
+  font-size: 12px;
 }

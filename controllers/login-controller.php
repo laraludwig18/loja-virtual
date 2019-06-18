@@ -14,6 +14,6 @@
         $_SESSION["admin"] = true;  
         return header("Location:../admin.php");
     } else {
-        $_SESSION["client"] = $client["email"];  
+        $_SESSION["client"] = $client["clientId"];  
         return header("Location:../home.php");
     }

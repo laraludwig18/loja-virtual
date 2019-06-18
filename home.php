@@ -14,23 +14,16 @@
         include "navbar.php"; 
     ?>
     <div class="container">
-        <div class="row">
-            <div class="col-lg-9">
-                <div id="pesquisa">
-                    <input class="form-control" type="text" placeholder="Search" aria-label="Search">
-                </div>
-                <div class="row" id="row">
-                </div>
+        <div class="row d-flex flex-column justify-content-center">
+            <input class="form-control search col-lg-8 col-md-8" type="text" placeholder="Pesquisar"
+                aria-label="Search">
+            <div class="inner-container" id="container-cards">
             </div>
         </div>
     </div>
-    <footer class="py-4 bg-dark">
-        <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; by: Lara Ludwig e Thiago Goulart</p>
-        </div>
-    </footer>
+    <?php include "footer.php"; ?>
 </body>
 <?php include "scripts.php"; ?>
-<script type="text/javascript" src="js/getProducts.js"></script>
+<script type="text/javascript" src="js/home.js"></script>
 
 </html>

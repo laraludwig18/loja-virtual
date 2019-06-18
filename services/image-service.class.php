@@ -1,5 +1,5 @@
 <?php 
-class imageService {
+class ImageService {
    public function saveImage($image) {
         $CLIENT_ID = "9744a1494c6651d";
 

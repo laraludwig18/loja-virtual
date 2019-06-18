@@ -1,6 +1,6 @@
 <?php 
    include '../dao/productdao.class.php';
-class productService {
+class ProductService {
    private $pDAO = null;
 
    public function __construct(){

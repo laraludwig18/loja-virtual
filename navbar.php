@@ -19,6 +19,7 @@
     </nav>
 
     <h1 id="titulo">Loja de livros</h1>
-    <img id="carrinho" src="https://cdn.icon-icons.com/icons2/494/PNG/512/cart_icon-icons.com_48341.png" alt="carrinho">
+    <a href="carrinho.php"><img id="carrinho" class="shopping-cart" src="images/shoppingCartIcon.png"
+            alt="carrinho"></a>
     </nav>
 </header>
