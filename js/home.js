@@ -4,31 +4,23 @@ $(document).ready(() => {
 
 getProducts = async () => {
   const response = await fetch("controllers/product-controller.php?op=get");
-  const { products } = await response.json();
+  const { products, clientId } = await response.json();
+  if (!localStorage.getItem("@id")) {
+    localStorage.setItem("@id", clientId);
+  }
   const productsView = products.map(product => render(product));
   $("#container-cards").append(productsView);
 };
 
 addCart = async productId => {
-  const requestInfo = {
-    method: "POST",
-    body: JSON.stringify({
-      productId
-    }),
-    headers: {
-      "Content-Type": "application/json"
-    }
-  };
-  try {
-    const response = await fetch(
-      "controllers/shopping-cart-controller.php?op=post",
-      requestInfo
-    );
-    const json = await response.json();
-    console.log(json["code"]);
-  } catch (err) {
-    console.log(err);
-  }
+  const clientId = localStorage.getItem("@id");
+  let shoppingCartList =
+    JSON.parse(localStorage.getItem(`shoppingCartList${clientId}`)) || [];
+  shoppingCartList.push({ productId, quantity: 1 });
+  localStorage.setItem(
+    `shoppingCartList${clientId}`,
+    JSON.stringify(shoppingCartList)
+  );
 };
 
 render = product => {
@@ -45,7 +37,9 @@ render = product => {
                             <p class="product-value">R$ ${price}</p>
                         </div>
                     </a>
-                    <button class="btn btn-outline-primary add-cart" onclick="addCart(${productId})">ADICIONAR AO CARINHO</button>
+                    <button class="btn btn-outline-primary add-cart" onclick="addCart(${
+                      product.productId
+                    })">ADICIONAR AO CARINHO</button>
                 </div>
             </div>`;
 };

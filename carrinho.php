@@ -2,37 +2,39 @@
 <html lang="pt-BR">
 
 <head>
-    <?php include "head.php"; ?>
-    <link href="css/navbar.css" rel="stylesheet">
-    <link href="css/shoppingCart.css" rel="stylesheet">
+  <?php include "head.php"; ?>
+  <link href="css/navbar.css" rel="stylesheet">
+  <link href="css/shoppingCart.css" rel="stylesheet">
 </head>
 
 <body class="d-flex flex-column">
-    <?php 
+  <?php 
         session_start();
         if(!$_SESSION["client"]) return header("Location: login.php");
         include "navbar.php"; 
     ?>
-    <div class="container">
-        <div class="row main-container">
-            <table id="table" class="table table-responsive-sm">
-                <thead>
-                    <tr>
-                        <th scope="col"></th>
-                        <th scope="col">Nome</th>
-                        <th scope="col">Quantidade</th>
-                        <th scope="col">Preço unitário</th>
-                        <th scope="col">Total item</th>
-                        <th scope="col">Remover</th>
-                    </tr>
-                </thead>
-                <tbody>
+  <div class="container">
+    <div class="row main-container">
+      <table id="table" class="table table-responsive-sm">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Nome</th>
+            <th scope="col">Quantidade</th>
+            <th scope="col">Preço unitário</th>
+            <th scope="col">Total item</th>
+            <th scope="col">Remover</th>
+          </tr>
+        </thead>
+        <tbody>
 
-                </tbody>
-            </table>
-        </div>
+        </tbody>
+      </table>
     </div>
-    <?php include "footer.php"; ?>
+    <div id="total" class="totalContainer">
+    </div>
+  </div>
+  <?php include "footer.php"; ?>
 </body>
 <?php include "scripts.php"; ?>
 <script type="text/javascript" src="js/shoppingCart.js"></script>

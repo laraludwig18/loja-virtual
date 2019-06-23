@@ -1,4 +1,5 @@
 <?php
+    session_start();
     include '../services/product-service.class.php';
     include '../services/image-service.class.php';
     include '../models/product.class.php';
@@ -12,7 +13,7 @@
             } else {
                 $products = $productService->getProducts();
             }
-            echo json_encode(array('products' => $products)); 
+            echo json_encode(array('products' => $products, 'clientId' => $_SESSION["client"])); 
             break;
         case "delete": 
             $productService->removeProduct($_GET["productid"]);

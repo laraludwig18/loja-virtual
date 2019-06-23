@@ -5,6 +5,19 @@ $(document).ready(() => {
   }
 });
 
+addCart = async productId => {
+  const clientId = localStorage.getItem("@id");
+  let shoppingCartList =
+    JSON.parse(localStorage.getItem(`shoppingCartList${clientId}`)) || [];
+  console.log(shoppingCartList);
+  shoppingCartList.push({ productId, quantity: 1 });
+  localStorage.setItem(
+    `shoppingCartList${clientId}`,
+    JSON.stringify(shoppingCartList)
+  );
+  window.location.replace("carrinho.php");
+};
+
 getProduct = async productId => {
   const response = await fetch(
     `controllers/product-controller.php?op=get&filtertype=id&filter=${productId}`

@@ -28,11 +28,15 @@ class ProductService {
 
    public function filter($filterType, $filter) {
       switch($filterType) {
+         case "ids":
+            $arrayIds = json_decode($filter);
+            $query = "WHERE productId IN (".implode(',',$arrayIds).")"; 
+            break;
          case "id":
-            $query = "where productId = {$filter}";
+            $query = "WHERE productId = {$filter}";
             break;
          default: 
-            $query = "where {$filterType} like '%{$filter}%'";
+            $query = "WHERE {$filterType} LIKE '%{$filter}%'";
       }
       return $this->pDAO->filter($query);
    }

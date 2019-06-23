@@ -18,3 +18,25 @@ html {
 .main-container {
   background-color: #fff;
 }
+
+.btn-buy {
+  font-size: 12px;
+}
+
+.totalText {
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 0;
+  margin-right: 15px;
+}
+
+.totalContainer {
+  background-color: #fff;
+  padding-right: 40px;
+}
+
+.valueText {
+  margin-right: 60px;
+  font-size: 18px;
+  margin-bottom: 0;
+}
