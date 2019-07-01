@@ -8,12 +8,20 @@
     
     switch($_GET["op"]){
         case "get": 
-            if(isset($_GET["filtertype"]) && isset($_GET["filter"])) {
+            if(isset($_GET["category"]) && isset($_GET["filtertype"]) && isset($_GET["filter"])) {
+                $products = $productService->filter($_GET["filtertype"], $_GET["filter"], $_GET["category"]);
+            } else if (isset($_GET["filtertype"]) && isset($_GET["filter"])) {
                 $products = $productService->filter($_GET["filtertype"], $_GET["filter"]);
             } else {
                 $products = $productService->getProducts();
             }
-            echo json_encode(array('products' => $products, 'clientId' => $_SESSION["client"])); 
+
+            if(empty($_SESSION["client"])) {
+                echo json_encode(array('products' => $products));
+            } else {
+                echo json_encode(array('products' => $products, 'clientId' => $_SESSION["client"])); 
+            }
+            
             break;
         case "delete": 
             $productService->removeProduct($_GET["productid"]);

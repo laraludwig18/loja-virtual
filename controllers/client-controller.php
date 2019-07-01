@@ -1,6 +1,6 @@
 <?php
     include '../models/client.class.php';
-    include '../dao/clientdao.class.php';
+    include '../services/client-service.class.php';
     $content = trim(file_get_contents("php://input"));
     $client = json_decode($content, true);
 
@@ -13,14 +13,14 @@
     $c->address = $client['address']; 
     $c->password = password_hash($client['password'], PASSWORD_DEFAULT);       
                     
-    $cDAO = new ClientDAO();
-    $result = $cDAO->getUser($c->email);
+    $clienteService = new ClientService();
+    $result = $clienteService->filter("email", $c->email);
 
     if(!empty($result)) {
         echo json_encode(array('code' => 400, 'errorMessage' => "Email já cadastrado em outra conta"));    
         exit();
     }
 
-    $cDAO->createClient($c);
+    $clienteService->createClient($c);
     
     echo json_encode(array('code' => 200));    

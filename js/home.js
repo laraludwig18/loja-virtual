@@ -2,12 +2,34 @@ $(document).ready(() => {
   this.getProducts();
 });
 
-getProducts = async () => {
-  const response = await fetch("controllers/product-controller.php?op=get");
+$("#input-search").on("input", e => {
+  this.getProducts(e.target.value);
+});
+
+getProducts = async (filter = "") => {
+  let url = "";
+  if (window.location.search) {
+    const category = window.location.search.slice(10);
+    url = filter
+      ? `controllers/product-controller.php?op=get&category=${category}&filtertype=name&filter=${filter}`
+      : `controllers/product-controller.php?op=get&filtertype=category&filter=${category}`;
+  } else {
+    url = filter
+      ? `controllers/product-controller.php?op=get&filtertype=name&filter=${filter}`
+      : `controllers/product-controller.php?op=get`;
+  }
+
+  const response = await fetch(url);
   const { products, clientId } = await response.json();
+
   if (!localStorage.getItem("@id")) {
     localStorage.setItem("@id", clientId);
   }
+  this.showProducts(products);
+};
+
+showProducts = products => {
+  $("#container-cards > div").remove();
   const productsView = products.map(product => render(product));
   $("#container-cards").append(productsView);
 };

@@ -35,7 +35,7 @@ getProducts = async (filter = "") => {
 
   const response = await fetch(url);
   const { products } = await response.json();
-  console.log(products);
+
   const productsView = products.map((product, index) => render(index, product));
   $("#table > tbody").append(productsView);
 };

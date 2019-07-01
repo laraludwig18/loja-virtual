@@ -54,10 +54,6 @@ isValid = client => {
     $("#email").addClass("is-invalid");
     isValid = false;
   }
-  if (!client.cpf.match(/^[0-9]{11}$/)) {
-    $("#cpf").addClass("is-invalid");
-    isValid = false;
-  }
   if (!client.password.match(/^[A-zÁ-úã-õç0-9*.-_$@!]{6,12}$/)) {
     $("#password").addClass("is-invalid");
     isValid = false;

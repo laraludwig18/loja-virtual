@@ -4,11 +4,6 @@
   font-size: 18px;
 }
 
-a {
-  color: transparent;
-  text-decoration: none;
-}
-
 a:hover {
   color: none;
   text-decoration: none;
@@ -23,8 +18,8 @@ html {
 }
 
 .search {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  width: 90%;
   align-self: center;
 }
 
@@ -39,6 +34,8 @@ html {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  color: transparent;
+  text-decoration: none;
 }
 
 .product-text {
@@ -73,8 +70,9 @@ html {
   width: 120px;
 }
 
-.inner-container {
+.container-cards {
   display: flex;
+  justify-content: flex-start;
   flex: 1;
   flex-wrap: wrap;
 }

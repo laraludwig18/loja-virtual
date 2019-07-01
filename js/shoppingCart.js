@@ -83,6 +83,7 @@ finalizePurchase = async total => {
       requestInfo
     );
     const json = await response.json();
+
     if (json["code"] === 200) {
       alert("Compra realizada com sucesso!");
       this.clearStorage();

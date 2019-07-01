@@ -13,14 +13,31 @@
         if(!$_SESSION["client"]) return header("Location: login.php");
         include "navbar.php"; 
     ?>
-  <div class="container">
-    <div class="row d-flex flex-column justify-content-center">
-      <input class="form-control search col-lg-8 col-md-8" type="text" placeholder="Pesquisar" aria-label="Search">
-      <div class="inner-container" id="container-cards">
+  <div class="container-fluid">
+    <div class="row my-4">
+
+      <div class="col-lg-3">
+        <div class="list-group">
+          <a href="home.php" class="list-group-item active">Todas</a>
+          <a href="home.php?category=hqs" class="list-group-item">HQs</a>
+          <a href="home.php?category=brasileira" class="list-group-item">Literatura Brasileira</a>
+          <a href="home.php?category=estrangeira" class="list-group-item">Literatura Estrangeira</a>
+          <a href="home.php?category=politica" class="list-group-item">Política</a>
+          <a href="home.php?category=romance" class="list-group-item">Romance</a>
+          <a href="home.php?category=suspense" class="list-group-item">Suspense</a>
+          <a href="home.php?category=terror" class="list-group-item">Terror</a>
+        </div>
+
+      </div>
+      <div class="col-lg-9 d-flex flex-column">
+        <input id="input-search" class="form-control search" type="text" placeholder="Pesquisar" aria-label="Search">
+        <div class="container-cards" id="container-cards">
+        </div>
       </div>
     </div>
-  </div>
-  <?php include "footer.php"; ?>
+    <div>
+      <?php include "footer.php"; ?>
+    </div>
 </body>
 <?php include "scripts.php"; ?>
 

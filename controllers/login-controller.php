@@ -1,9 +1,9 @@
 <?php
     session_start();
-    include '../dao/clientdao.class.php';
-     
-    $cDAO = new ClientDAO();
-    $result = $cDAO->getUser($_POST["email"]);
+    include '../services/client-service.class.php';
+
+    $clienteService = new ClientService();
+    $result = $clienteService->filter("email", $_POST["email"]);
     $client = empty($result) ? [] : $result[0];
 
     if(empty($client) || !password_verify($_POST["password"], $client["password"])){
