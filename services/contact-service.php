@@ -13,7 +13,7 @@ class ContactService {
     }
     public function sendMessage() {
         echo "teste";
-        $message = "<html><div><h3>Mensagem</h3>";
+        $message = "<h3>Mensagem</h3>";
         $message .= "Por: " $nome "\n <br />"
         "E-mail: " $email "\n <br />"
         "Mensagem: " $mensagem "\n <br />";       
