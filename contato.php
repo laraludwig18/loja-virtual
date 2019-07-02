@@ -3,7 +3,7 @@
 
 <head>
     <?php include "head.php";?>
-    
+    <link href="css/navbar.css" rel="stylesheet">
     <link href="css/contato.css" rel="stylesheet">
 </head>
 

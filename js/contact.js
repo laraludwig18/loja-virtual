@@ -35,7 +35,8 @@ $("#form-contato").submit(async e => {
   
   buildContact = () => ({
     name: $("#name").val(),
-    email: $("#email").val()
+    email: $("#email").val(),
+    mensagem: $("#mensagem")
   });
   
   isValid = contact => {

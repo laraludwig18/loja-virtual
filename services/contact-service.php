@@ -11,12 +11,9 @@ class ContactService {
     public function __construct(){
          $this->emailService = new EmailService();
     }
-    public function sendMessage() {
-        echo "teste";
+    public function sendMessage($msg) {
         $message = "<h3>Mensagem</h3>";
-        $message .= "Por: " $nome "\n <br />"
-        "E-mail: " $email "\n <br />"
-        "Mensagem: " $mensagem "\n <br />";       
+        $message .= "Por: {$nome}<br>E-mail: {$email}<br>Mensagem: {$mensagem}";       
  
        $hasSend = $this->emailService->sendEmail("thiaggoulart@gmail.com",$message);
        return $hasSend;
