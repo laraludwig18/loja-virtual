@@ -17,7 +17,7 @@
                     </div>
                     <div class="card-body">
                         <h5 class="card-title text-center">Fale Conosco</h5>
-                        <form id="form-contato" method= "post" action = " " class="form-signin">
+                        <form id="form-contato" method= "POST" class="form-signin">
                             <div class="form-label-group">
                                 <input type="text" name="tfNome" id="name" maxlength="70" class="form-control" autofocus>
                                 <label for="name" id="labelFormContato">Nome completo</label>
@@ -33,7 +33,7 @@
                                 </div>
                             </div>
                             <div class="form-label-group">
-                                <input type="text" name="tfMensagem" id="assunto" maxlength="70" class="form-control">
+                                <input type="text" name="tfMensagem" id="mensagem" maxlength="70" class="form-control">
                                 <label for="message" id="labelFormContato">Mensagem</label>
                                 <div class="invalid-feedback">
                                     Por favor, digite sua mensagem.
@@ -47,6 +47,9 @@
             </div>
         </div>
     </div>
+    <?php include "footer.php"; ?>
 </body>
+<?php include "scripts.php";?>
+<script type="text/javascript" src="js/contact.js"></script>
 
 </html>
