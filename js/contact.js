@@ -20,6 +20,7 @@ $("#form-contato").submit(async e => {
         requestInfo
       );
       const json = await response.json();
+      console.log(response.json());
       if (json["code"] === 200) {
         window.location.replace("home.php");
       } else {
