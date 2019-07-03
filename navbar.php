@@ -15,7 +15,7 @@
           <a class="nav-link" href="util/logout.php">Sair</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="contato.php">Sair</a>
+          <a class="nav-link" href="contato.php">Contate-nos</a>
         </li>
       </ul>
     </div>
