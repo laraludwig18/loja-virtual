@@ -10,6 +10,8 @@ getProducts = async (filter = "") => {
   let url = "";
   if (window.location.search) {
     const category = window.location.search.slice(10);
+    $("#category-group a").removeClass("selected");
+    $(`#${category}`).addClass("selected");
     url = filter
       ? `controllers/product-controller.php?op=get&category=${category}&filtertype=name&filter=${filter}`
       : `controllers/product-controller.php?op=get&filtertype=category&filter=${category}`;
@@ -25,6 +27,7 @@ getProducts = async (filter = "") => {
   if (!localStorage.getItem("@id")) {
     localStorage.setItem("@id", clientId);
   }
+
   this.showProducts(products);
 };
 
@@ -56,7 +59,7 @@ render = product => {
                         <div class="product-text">
                             <p class="product-title">${name}</p>
                             <p class="product-subtitle text-secondary">${author}</p>
-                            <p class="product-value">R$ ${price}</p>
+                            <p id="price" class="product-value">R$ ${price}</p>
                         </div>
                     </a>
                     <button class="btn btn-outline-primary add-cart" onclick="addCart(${

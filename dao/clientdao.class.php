@@ -1,5 +1,5 @@
 <?php
-    require '../persistence/databaseconnection.class.php';
+    include_once '../persistence/databaseconnection.class.php';
     class ClientDAO {
         private $connection = null;
 

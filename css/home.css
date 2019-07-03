@@ -23,6 +23,17 @@ html {
   align-self: center;
 }
 
+.category-item,
+.category-item:hover {
+  color: #4a5056;
+}
+
+.selected,
+.selected:hover {
+  background-color: #4a5056;
+  color: #fff;
+}
+
 .product-button {
   height: 300px;
   width: 95%;

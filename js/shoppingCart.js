@@ -126,6 +126,7 @@ getProducts = async () => {
 
     const { products } = await response.json();
     const newProducts = this.buildShoppingCartList(products, shoppingCartList);
+
     this.setShoppingCartList(newProducts);
     this.renderShoppingCart(newProducts);
     this.calculateTotal(newProducts);

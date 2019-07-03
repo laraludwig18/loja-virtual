@@ -46,7 +46,7 @@ render = (index, product) =>
         <td>${product.name}</td>
         <td>${product.author}</td>
         <td>${product.quantity}</td>
-        <td>R$ ${product.price}</td>
+        <td id="price">R$ ${product.price}</td>
         <td><button class="btn btn-outline-primary" onclick="changeProduct(${
           product.productId
         })">Alterar</button></td>

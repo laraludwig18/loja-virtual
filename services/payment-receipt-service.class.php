@@ -2,15 +2,19 @@
    session_start();
    include "email-service.class.php";
    include "client-service.class.php";
+   include "../dao/productdao.class.php";
 
    class PaymentReceiptService {
       private $emailService = null;
       private $clientService = null;
-
+      private $pDAO = null;
+      
       public function __construct(){
          $this->emailService = new EmailService();
          $this->clientService = new ClientService();
+         $this->pDAO = new ProductDAO();
       }
+      
       public function sendPaymentReceipt($products, $total) {
          $result = $this->clientService->filter("id", $_SESSION["client"]);
          $to = $result[0]["email"];
@@ -23,5 +27,11 @@
 
          $hasSend = $this->emailService->sendEmail($to, $message);
          return $hasSend;
+      }
+
+      public function decreaseQuantity($products) {
+         foreach ($products as $product) {
+            $this->pDAO->changeQuantity($product["productId"], $product["quantity"]);
+         }
       }
    }

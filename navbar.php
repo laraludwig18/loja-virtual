@@ -7,7 +7,7 @@
       <ul class="navbar-nav mr-auto">
         <?php   
         if(isset($_SESSION["client"])) { ?>
-        <li class="nav-item active">
+        <li class="nav-item">
           <a class="nav-link" href="home.php">Home<span class="sr-only">(current)</span></a>
         </li>
         <?php } ?>
@@ -18,7 +18,7 @@
     </div>
   </nav>
 
-  <h2 id="titulo">Loja de livros</h2>
+  <h2 id="title">Loja de livros</h2>
   <?php   
   if(isset($_SESSION["client"])) { ?>
   <a href="carrinho.php"><img id="carrinho" class="shopping-cart" src="images/shoppingCartIcon.png" alt="carrinho"></a>

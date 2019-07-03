@@ -17,27 +17,30 @@
     <div class="row my-4">
 
       <div class="col-lg-3">
-        <div class="list-group">
-          <a href="home.php" class="list-group-item active">Todas</a>
-          <a href="home.php?category=hqs" class="list-group-item">HQs</a>
-          <a href="home.php?category=brasileira" class="list-group-item">Literatura Brasileira</a>
-          <a href="home.php?category=estrangeira" class="list-group-item">Literatura Estrangeira</a>
-          <a href="home.php?category=politica" class="list-group-item">Política</a>
-          <a href="home.php?category=romance" class="list-group-item">Romance</a>
-          <a href="home.php?category=suspense" class="list-group-item">Suspense</a>
-          <a href="home.php?category=terror" class="list-group-item">Terror</a>
+        <div id="category-group" class="list-group">
+          <a href="home.php" class="list-group-item category-item selected">Todas</a>
+          <a id="hqs" href="home.php?category=hqs" class="list-group-item category-item">HQs</a>
+          <a id="brasileira" href="home.php?category=brasileira" class="list-group-item category-item">Literatura
+            Brasileira</a>
+          <a id="estrangeira" href="home.php?category=estrangeira" class="list-group-item category-item">Literatura
+            Estrangeira</a>
+          <a id="politica" href="home.php?category=politica" class="list-group-item category-item">Política</a>
+          <a id="romance" href="home.php?category=romance" class="list-group-item category-item">Romance</a>
+          <a id="suspense" href="home.php?category=suspense" class="list-group-item category-item">Suspense</a>
+          <a id="terror" href="home.php?category=terror" class="list-group-item category-item">Terror</a>
         </div>
-
       </div>
+
       <div class="col-lg-9 d-flex flex-column">
         <input id="input-search" class="form-control search" type="text" placeholder="Pesquisar" aria-label="Search">
         <div class="container-cards" id="container-cards">
         </div>
       </div>
+
     </div>
-    <div>
-      <?php include "footer.php"; ?>
-    </div>
+  </div>
+
+  <?php include "footer.php"; ?>
 </body>
 <?php include "scripts.php"; ?>
 

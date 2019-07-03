@@ -1,3 +1,7 @@
+$(document).ready(() => {
+  $("#birthDate")[0].max = new Date().toISOString().slice(0, 10);
+});
+
 $("#form-client").submit(async e => {
   e.preventDefault();
 
@@ -36,8 +40,8 @@ $("#form-client").submit(async e => {
 buildClient = () => ({
   name: $("#name").val(),
   email: $("#email").val(),
-  phoneNumber: $("#phoneNumber").val(),
-  cpf: $("#cpf").val(),
+  phoneNumber: $("#phoneNumber").cleanVal(),
+  cpf: $("#cpf").cleanVal(),
   address: $("#address").val(),
   birthDate: $("#birthDate").val(),
   password: $("#password").val(),
@@ -50,11 +54,21 @@ isValid = client => {
     $("#name").addClass("is-invalid");
     isValid = false;
   }
-  if (!client.email.match(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9]+\.[.a-zA-Z0-9]{2,}$/)) {
+  if (
+    !client.email.match(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9]+\.[.a-zA-Z0-9]{2,70}$/)
+  ) {
     $("#email").addClass("is-invalid");
     isValid = false;
   }
-  if (!client.password.match(/^[A-zÁ-úã-õç0-9*.-_$@!]{6,12}$/)) {
+  if (client.phoneNumber.length !== 11) {
+    $("#phoneNumber").addClass("is-invalid");
+    isValid = false;
+  }
+  if (client.cpf.length !== 11) {
+    $("#cpf").addClass("is-invalid");
+    isValid = false;
+  }
+  if (client.password.length < 6) {
     $("#password").addClass("is-invalid");
     isValid = false;
   }

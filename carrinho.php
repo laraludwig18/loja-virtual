@@ -7,7 +7,7 @@
   <link href="css/shoppingCart.css" rel="stylesheet">
 </head>
 
-<body class="d-flex flex-column">
+<body>
   <?php 
         session_start();
         if(!$_SESSION["client"]) return header("Location: login.php");
@@ -29,9 +29,10 @@
         <tbody>
 
         </tbody>
+        <tfoot>
+          <th scope="col" id="total" colspan="6"></th>
+        </tfoot>
       </table>
-    </div>
-    <div id="total" class="totalContainer">
     </div>
   </div>
   <?php include "footer.php"; ?>

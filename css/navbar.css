@@ -6,10 +6,12 @@
   justify-content: space-between;
 }
 
-#titulo {
+#title {
   color: #eaeaeb;
+  display: flex;
+  flex: 1;
+  justify-content: center;
   background-color: rgba(0, 0, 0, 0);
-  display: inline-flex;
 }
 
 .shopping-cart {

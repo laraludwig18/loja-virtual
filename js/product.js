@@ -31,6 +31,9 @@ getFilename = fileUrl => fileUrl.split("/")[3];
 $("#form-product").submit(async e => {
   e.preventDefault();
   const product = this.buildProduct();
+
+  if (!this.isValid(product)) return;
+
   const productExist = !!window.location.search;
 
   const data = new FormData();
@@ -76,7 +79,37 @@ buildProduct = () => ({
   description: $("#description").val(),
   category: $("#category").val(),
   quantity: $("#quantity").val(),
-  price: $("#price").val()
+  price: $("#price").cleanVal()
+});
+
+isValid = product => {
+  let isValid = true;
+
+  if (!window.location.search && !product.file) {
+    $("#file").addClass("is-invalid");
+    isValid = false;
+  }
+  if (!product.name.match(/^[A-zÁ-úã-õç ]{2,70}$/)) {
+    $("#name").addClass("is-invalid");
+    isValid = false;
+  }
+  if (!product.author.match(/^[A-zÁ-úã-õç ]{2,70}$/)) {
+    $("#author").addClass("is-invalid");
+    isValid = false;
+  }
+  if (product.quantity < 1) {
+    $("#quantity").addClass("is-invalid");
+    isValid = false;
+  }
+  if (product.price <= 0) {
+    $("#price").addClass("is-invalid");
+    isValid = false;
+  }
+  return isValid;
+};
+
+$("input").click(function() {
+  $(this).removeClass("is-invalid");
 });
 
 $("#file").change(function(e) {

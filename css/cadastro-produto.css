@@ -2,6 +2,12 @@ body {
   background-color: #eeeeee;
 }
 
+.link-admin {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}
+
 .btn-submit {
   text-transform: uppercase;
   font-size: 16px;

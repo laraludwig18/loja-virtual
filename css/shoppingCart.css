@@ -4,6 +4,10 @@ html {
   min-height: 100%;
   overflow-x: hidden;
   background-color: #f0f0f0 !important;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .product-img {
