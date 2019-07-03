@@ -13,15 +13,11 @@ class ContactService {
         $nome = $contact["name"];
         $email = $contact["email"];
         $mensagem = $contact["mensagem"];
-        foreach ($contact["mensagem"] as $letra => $contact["mensagem"]) {
-            $mensagem2 = $contact["mensagem"];
-         }
        
-        $message = "<html><div><h3>Mensagem</h3>";
-        $message .= "Por: {$nome}<br>E-mail: {$email}<br>Mensagem: {$mensagem2}</div></html>";       
+        $message = "Por: {$nome}<br>E-mail: {$email}<br>Mensagem: {$mensagem}";       
  
-       $hasSend = $this->emailService->sendEmail("thiaggoulart@gmail.com",$message);
-       return $hasSend;
+        $hasSend = $this->emailService->sendEmail("thiaggoulart@gmail.com", $message);
+        return $hasSend;
     }
  }
  ?>
