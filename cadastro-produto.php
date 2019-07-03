@@ -20,7 +20,7 @@
             <form id="form-product" enctype="multipart/form-data" class="form-signin">
               <div class="form-group mb-4">
                 <label for="name">Nome: *</label>
-                <input type="text" id="name" maxlength="70" class="form-control" autofocus>
+                <input type="text" id="name" maxlength="70" class="form-control" required autofocus>
                 <div class="invalid-feedback">
                   Por favor, informe um nome válido.
                 </div>
@@ -46,7 +46,7 @@
                   <option value="HQs">HQs</option>
                   <option value="Literatura Brasileira">Literatura Brasileira</option>
                   <option value="Literatura Estrangeira">Literatura Estrangeira</option>
-                  <option value="Política">Política</option>
+                  <option value="Politica">Política</option>
                   <option value="Romance">Romance</option>
                   <option value="Suspense">Suspense</option>
                   <option value="Terror">Terror</option>

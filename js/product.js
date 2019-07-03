@@ -79,22 +79,23 @@ buildProduct = () => ({
   description: $("#description").val(),
   category: $("#category").val(),
   quantity: $("#quantity").val(),
-  price: $("#price").cleanVal()
+  price: this.formatValue($("#price").cleanVal())
 });
+
+formatValue = value => {
+  return value.length < 3
+    ? value
+    : `${value.slice(0, value.length - 2)}.${value.slice(
+        value.length - 2,
+        value.length
+      )}`;
+};
 
 isValid = product => {
   let isValid = true;
 
   if (!window.location.search && !product.file) {
     $("#file").addClass("is-invalid");
-    isValid = false;
-  }
-  if (!product.name.match(/^[A-zÁ-úã-õç ]{2,70}$/)) {
-    $("#name").addClass("is-invalid");
-    isValid = false;
-  }
-  if (!product.author.match(/^[A-zÁ-úã-õç ]{2,70}$/)) {
-    $("#author").addClass("is-invalid");
     isValid = false;
   }
   if (product.quantity < 1) {

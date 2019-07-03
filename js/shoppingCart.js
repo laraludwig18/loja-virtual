@@ -4,11 +4,13 @@ $(document).ready(() => {
 
 handleChangeQuantity = async productId => {
   const shoppingCartList = this.getShoppingCartList();
+
   const product = shoppingCartList.filter(item => productId == item.productId);
-  const quantity = $("#quantity").val();
+
+  const quantity = $(`#quantity${productId}`).val();
 
   if (quantity < 1) {
-    $("#quantity").val(product[0].quantity);
+    $(`#quantity${productId}`).val(product[0].quantity);
     return alert("Quantidade inválida");
   }
   try {
@@ -17,8 +19,9 @@ handleChangeQuantity = async productId => {
     );
 
     const { products } = await response.json();
-    if (products[0].quantity < quantity) {
-      $("#quantity").val(product[0].quantity);
+
+    if (Number(products[0].quantity) < quantity) {
+      $(`#quantity${productId}`).val(product[0].quantity);
       return alert("Quantidade maior que o estoque");
     }
   } catch (err) {
@@ -28,6 +31,8 @@ handleChangeQuantity = async productId => {
   const products = shoppingCartList.map(product => {
     return productId == product.productId ? { ...product, quantity } : product;
   });
+
+  console.log(products);
 
   this.setShoppingCartList(products);
   this.renderShoppingCart(products);
@@ -97,13 +102,14 @@ finalizePurchase = async total => {
 renderTotal = total =>
   `<div class="d-flex justify-content-end align-items-center">
     <p class="totalText">Total:</p>
-    <p class="valueText">R$ ${total}</p>
+    <p class="valueText">R$ ${total.toFixed(2)}</p>
     <button class="btn btn-primary btn-buy" onclick="finalizePurchase(${total})">FINALIZAR COMPRA</button>
     </div>
   `;
 
 calculateTotal = products => {
   $("#total > div").remove();
+  if (!products.length) return;
   const total = products.reduce(
     (total, product) => total + product.price * product.quantity,
     0
@@ -148,11 +154,11 @@ render = product => {
   return `<tr>
         <td><img class="product-img" src="${imageUrl}" alt="${name}"></td>
         <td>${name}</td>
-        <td><input type="number" class="form-control input-quantity" id="quantity" onblur="handleChangeQuantity(${productId})" value="${
+        <td><input type="text" class="form-control input-quantity" id="quantity${productId}" onblur="handleChangeQuantity(${productId})" value="${
     product.quantity
   }" required></td>
         <td>R$ ${price}</td>
-        <td>R$ ${price * quantity}</td>
+        <td>R$ ${(price * quantity).toFixed(2)}</td>
         <td><button class="btn btn-outline-primary" onclick="removeProductFromCart(${productId})" id="btn-remove">Remover</button></td>
     </tr>`;
 };

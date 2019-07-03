@@ -55,7 +55,7 @@ render = product => {
   return `<div class="col-lg-4 col-md-6 mb-4">
                 <div class="card product-button">
                     <a href="${link}" class="product-content">
-                        <img class="product-img" src="${imageUrl}" alt="${name}">
+                        <img class="product-img ml-2" src="${imageUrl}" alt="${name}">
                         <div class="product-text">
                             <p class="product-title">${name}</p>
                             <p class="product-subtitle text-secondary">${author}</p>

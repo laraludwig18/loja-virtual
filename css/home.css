@@ -78,7 +78,7 @@ html {
 
 .product-img {
   height: 150px;
-  width: 120px;
+  min-width: 120px;
 }
 
 .container-cards {

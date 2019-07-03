@@ -19,35 +19,35 @@
             <form id="form-client" class="form-signin">
               <div class="form-label-group">
                 <input type="text" id="name" maxlength="70" class="form-control" autofocus>
-                <label for="name">Nome completo</label>
+                <label for="name">Nome completo *</label>
                 <div class="invalid-feedback">
                   Por favor, informe um nome válido.
                 </div>
               </div>
               <div class="form-label-group">
                 <input type="email" id="email" maxlength="70" class="form-control">
-                <label for="email">E-mail</label>
+                <label for="email">E-mail *</label>
                 <div class="invalid-feedback">
                   Por favor, informe um email válido.
                 </div>
               </div>
               <div class="form-label-group">
                 <input type="text" data-mask="(00) 00000-0000" id="phoneNumber" class="form-control">
-                <label for="phoneNumber">Telefone</label>
+                <label for="phoneNumber">Telefone *</label>
                 <div class="invalid-feedback">
                   Por favor, informe um telefone válido.
                 </div>
               </div>
               <div class="form-label-group">
                 <input type="text" id="cpf" data-mask="000.000.000-00" class="form-control">
-                <label for="cpf">CPF</label>
+                <label for="cpf">CPF *</label>
                 <div class="invalid-feedback">
                   Por favor, informe um cpf válido.
                 </div>
               </div>
               <div class="form-label-group">
                 <input type="text" id="address" maxlength="255" class="form-control" required>
-                <label for="address">Endereço</label>
+                <label for="address">Endereço *</label>
                 <div class="invalid-feedback">
                   Por favor, informe um endereço válido.
                 </div>
@@ -55,7 +55,7 @@
               <div class="form-label-group">
                 <input type="date" id="birthDate" class="form-control" min="1920-04-01"
                   pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" required>
-                <label for="date">Data de Nascimento</label>
+                <label for="date">Data de Nascimento *</label>
                 <div class="invalid-feedback">
                   Por favor, informe uma data de nascimento válida.
                 </div>
@@ -64,7 +64,7 @@
               <div class="form-label-group">
                 <input type="password" id="password" maxlength="12" class="form-control"
                   aria-describedby="passwordHelpBlock">
-                <label for="password">Password</label>
+                <label for="password">Password *</label>
                 <div class="invalid-feedback">
                   Por favor, informe uma senha válida.
                 </div>
