@@ -34,7 +34,7 @@
                             </div>
                             <div class="form-label-group">
                                 <input type="text" name="tfMensagem" id="mensagem" maxlength="70" class="form-control">
-                                <label for="message" id="labelFormContato">Mensagem</label>
+                                <label for="mensagem" id="labelFormContato">Mensagem</label>
                                 <div class="invalid-feedback">
                                     Por favor, digite sua mensagem.
                                 </div>
