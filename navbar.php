@@ -14,6 +14,9 @@
         <li class="nav-item">
           <a class="nav-link" href="util/logout.php">Sair</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contato.php">Sair</a>
+        </li>
       </ul>
     </div>
   </nav>
