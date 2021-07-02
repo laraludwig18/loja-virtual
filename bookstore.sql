@@ -46,7 +46,7 @@ CREATE TABLE `client` (
 
 INSERT INTO `client` (`clientId`, `name`, `email`, `phoneNumber`, `birthDate`, `cpf`, `address`, `password`, `type`) VALUES
 (65, 'admin', 'admin@gmail.com', '', '0000-00-00', '', '', '$2y$10$u7l89KxbCxsJcrbC/VQV3evFHpOWk1eURDSS1syumaxr8YnZOmDca', 'admin'),
-(67, 'lara ludwig', 'laraludwig18@gmail.com', '(51) 99372-3650', '1999-04-12', '025.514.680-94', 'sdsdsddsdsdsd', '$2y$10$ZM76sm4REFwkzU9flQ0nUOGAAD.D3hx24jc5DThKvKMMwtRTxa0NK', 'normal');
+(67, 'lara ludwig', 'laraludwig90@gmail.com', '(51) 99363-3650', '1999-04-30', '015.454.623-90', 'sdsdsddsdsdsd', '$2y$10$ZM76sm4REFwkzU9flQ0nUOGAAD.D3hx24jc5DThKvKMMwtRTxa0NK', 'normal');
 
 -- --------------------------------------------------------
 
